@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"content="width=device-width, intitial-scale=1.0">
+    <title> Document</title>
+    <style>
+        h1{
+            color: #bbb;
+            line-height: 10px;
+        }
+        pre{
+            color: blueviolet;
+        }
+        input{
+            color:aqua;
+        }
+        #mail{
+            color: blue;
+        } 
+        textarea{
+            color: grey;
+        }
+        section{
+            color: tan;
+            line-height: 20px;
+        }
+html{
+    background-color: rgb(186, 137, 37);
+    text-align: center;
+    text-decoration-line: underline;
+    text-transform: uppercase;
+}
+    </style>
+    </head>
+    <body>
+        <form> action="" method="">
+        <h1> headline </h1>
+        
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum veniam velit vel, numquam nesciunt reprehenderit sequi quia optio earum provident obcaecati possimus placeat necessitatibus tempora deserunt consequuntur, accusantium, et harum.</p>
+<pre>I am use the vs code in smart tv in first time</pre>
+<input name="email" type="email" 
+<ul>
+            <li>
+<label for="gmail">gmail </label>
+<input type="email" id="mail" name="emil" value="email"/>
+            </li>
+        </ol>
+    
+<li>
+    <label for="name">Name</label>
+    <input type="text" name="user_name" value="name"/>
+</li>
+<li>
+    <label for="msg">Message</label>
+    <textarea id="text" name="Message"></textarea><br>
+    <li class="button">
+        <button type="submit">Send your message</button>
+      </li>
+      
+</li>
+</ul>
+<section> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis perspiciatis tenetur ea iusto veniam asperiores, ipsam voluptas quod eos enim quidem nisi cupiditate voluptatem a quaerat dolor architecto consequuntur omnis.</section>
+<input type="text" value="by default this element is filled with this text" />
+
+</form>
+    </body>
+</html>
