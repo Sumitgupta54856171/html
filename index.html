@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trending Tailwind CSS Animations</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        /* Custom animations for advanced effects */
+        @keyframes shine {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(200%) rotate(45deg); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 5px rgba(59, 130, 246, 0.5); }
+            50% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.8), 0 0 30px rgba(59, 130, 246, 0.6); }
+        }
+        
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes morphing {
+            0%, 100% { border-radius: 20px; transform: scale(1); }
+            25% { border-radius: 50px; transform: scale(1.05); }
+            50% { border-radius: 10px; transform: scale(0.95); }
+            75% { border-radius: 40px; transform: scale(1.02); }
+        }
+        
+        .shine-effect {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .shine-effect::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: shine 2s infinite;
+        }
+        
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .pulse-glow {
+            animation: pulse-glow 2s infinite;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient-shift 4s ease infinite;
+        }
+        
+        .morphing-card {
+            animation: morphing 4s ease-in-out infinite;
+        }
+        
+        .reveal-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
+        
+        .reveal-content.active {
+            max-height: 200px;
+        }
+        
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 p-6">
+    <div class="max-w-7xl mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h1 class="text-5xl font-bold text-white mb-4 animate-pulse">
+                Trending Tailwind CSS Animations
+            </h1>
+            <p class="text-xl text-blue-200 opacity-90">
+                Modern, eye-catching animations for 2025
+            </p>
+        </div>
+
+        <!-- Animation Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- 1. Shine Card Effect -->
+            <div class="shine-effect bg-gradient-to-r from-pink-500 to-violet-500 p-6 rounded-2xl text-white transform hover:scale-105 transition-transform duration-300 cursor-pointer">
+                <h3 class="text-2xl font-bold mb-4">✨ Shine Effect</h3>
+                <p class="opacity-90">Hover to see the magical shine animation sweep across the card</p>
+            </div>
+
+            <!-- 2. Floating Card -->
+            <div class="float-animation bg-white/10 backdrop-blur-md p-6 rounded-2xl text-white border border-white/20">
+                <h3 class="text-2xl font-bold mb-4">🎈 Float Animation</h3>
+                <p class="opacity-90">Gentle floating motion creates a weightless feel</p>
+            </div>
+
+            <!-- 3. Pulse Glow -->
+            <div class="pulse-glow bg-blue-600 p-6 rounded-2xl text-white">
+                <h3 class="text-2xl font-bold mb-4">💎 Pulse Glow</h3>
+                <p class="opacity-90">Rhythmic glowing effect that draws attention</p>
+            </div>
+
+            <!-- 4. Gradient Background Animation -->
+            <div class="gradient-bg p-6 rounded-2xl text-white">
+                <h3 class="text-2xl font-bold mb-4">🌈 Gradient Shift</h3>
+                <p class="opacity-90">Dynamic color-changing background animation</p>
+            </div>
+
+            <!-- 5. Morphing Card -->
+            <div class="morphing-card bg-gradient-to-r from-green-400 to-blue-500 p-6 text-white">
+                <h3 class="text-2xl font-bold mb-4">🔄 Morphing Shape</h3>
+                <p class="opacity-90">Shape-shifting border radius animation</p>
+            </div>
+
+            <!-- 6. Hover Reveal Content -->
+            <div class="bg-purple-600 p-6 rounded-2xl text-white cursor-pointer group hover:bg-purple-700 transition-colors duration-300" onclick="toggleContent(this)">
+                <h3 class="text-2xl font-bold mb-4">📖 Expandable Content</h3>
+                <p class="opacity-90 mb-4">Click to reveal hidden content</p>
+                <div class="reveal-content bg-white/20 p-4 rounded-lg">
+                    <p class="text-sm">🎉 Surprise! This content was hidden and smoothly revealed with CSS transitions. Perfect for FAQs, product details, or progressive disclosure!</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Advanced Interactive Section -->
+        <div class="mt-16">
+            <h2 class="text-4xl font-bold text-white text-center mb-12">Advanced Interactive Elements</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                
+                <!-- Glass Morphism Card -->
+                <div class="glass-effect p-8 rounded-3xl hover:scale-105 transform transition-all duration-500 group">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-r from-pink-500 to-violet-500 rounded-full flex items-center justify-center text-white font-bold text-xl group-hover:rotate-180 transition-transform duration-500">
+                            G
+                        </div>
+                        <h3 class="text-2xl font-bold text-white ml-4">Glassmorphism Card</h3>
+                    </div>
+                    <p class="text-blue-100 mb-4">Modern glass effect with backdrop blur and subtle transparency</p>
+                    <button class="px-6 py-3 bg-white/20 text-white rounded-full hover:bg-white/30 transition-colors duration-300">
+                        Learn More
+                    </button>
+                </div>
+
+                <!-- 3D Flip Card -->
+                <div class="h-64 group perspective-1000">
+                    <div class="relative w-full h-full transition-transform duration-700 group-hover:rotate-y-180 transform-style-preserve-3d cursor-pointer">
+                        <!-- Front -->
+                        <div class="absolute inset-0 bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl flex items-center justify-center backface-hidden">
+                            <div class="text-center text-white">
+                                <h3 class="text-3xl font-bold mb-4">🎴 Flip Card</h3>
+                                <p>Hover to flip!</p>
+                            </div>
+                        </div>
+                        <!-- Back -->
+                        <div class="absolute inset-0 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-2xl flex items-center justify-center backface-hidden rotate-y-180">
+                            <div class="text-center text-white p-6">
+                                <h3 class="text-2xl font-bold mb-4">🌟 Revealed!</h3>
+                                <p class="opacity-90">3D flip animation using CSS transforms</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Micro-animations Section -->
+        <div class="mt-16">
+            <h2 class="text-4xl font-bold text-white text-center mb-12">Micro-Animations</h2>
+            
+            <div class="flex flex-wrap justify-center gap-6">
+                
+                <!-- Bouncing Button -->
+                <button class="px-8 py-4 bg-gradient-to-r from-pink-500 to-rose-500 text-white font-bold rounded-full hover:animate-bounce transform hover:scale-110 transition-transform duration-200">
+                    Bounce Me!
+                </button>
+
+                <!-- Rotating Icon -->
+                <div class="flex items-center space-x-4 bg-white/10 px-6 py-4 rounded-full backdrop-blur-md">
+                    <div class="w-8 h-8 bg-yellow-400 rounded-full animate-spin"></div>
+                    <span class="text-white font-semibold">Loading...</span>
+                </div>
+
+                <!-- Wiggle Effect -->
+                <button class="px-8 py-4 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-bold rounded-full hover:animate-pulse transform hover:rotate-3 transition-transform duration-200">
+                    Wiggle Button
+                </button>
+
+                <!-- Heartbeat -->
+                <div class="flex items-center space-x-3 bg-red-500 px-6 py-4 rounded-full">
+                    <div class="text-white text-2xl animate-ping">❤️</div>
+                    <span class="text-white font-semibold">Heartbeat</span>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Website Name Display -->
+        <div class="mt-16 text-center">
+            <div class="inline-block bg-gradient-to-r from-purple-600 to-blue-600 px-8 py-4 rounded-2xl transform hover:scale-105 transition-transform duration-300">
+                <h3 class="text-2xl font-bold text-white mb-2">🌐 AnimationHub.dev</h3>
+                <p class="text-blue-100">Your source for cutting-edge web animations</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="mt-20 text-center text-blue-200 opacity-70">
+            <p>Built with ❤️ using Tailwind CSS • 2025 Animation Trends</p>
+        </div>
+    </div>
+
+    <script>
+        // Add custom transform styles for 3D effects
+        const style = document.createElement('style');
+        style.textContent = `
+            .perspective-1000 { perspective: 1000px; }
+            .transform-style-preserve-3d { transform-style: preserve-3d; }
+            .backface-hidden { backface-visibility: hidden; }
+            .rotate-y-180 { transform: rotateY(180deg); }
+        `;
+        document.head.appendChild(style);
+
+        // Function to toggle expandable content
+        function toggleContent(element) {
+            const content = element.querySelector('.reveal-content');
+            content.classList.toggle('active');
+        }
+
+        // Add hover effects for shine cards
+        document.querySelectorAll('.shine-effect').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.animationDuration = '0.6s';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.animationDuration = '2s';
+            });
+        });
+
+        // Add click ripple effect
+        document.addEventListener('click', function(e) {
+            if (e.target.tagName === 'BUTTON' || e.target.closest('button')) {
+                const button = e.target.tagName === 'BUTTON' ? e.target : e.target.closest('button');
+                const ripple = document.createElement('span');
+                const rect = button.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.cssText = `
+                    position: absolute;
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}px;
+                    top: ${y}px;
+                    background: rgba(255,255,255,0.3);
+                    border-radius: 50%;
+                    transform: scale(0);
+                    animation: ripple 0.6s ease-out;
+                    pointer-events: none;
+                `;
+                
+                if (!document.querySelector('style[data-ripple]')) {
+                    const rippleStyle = document.createElement('style');
+                    rippleStyle.setAttribute('data-ripple', '');
+                    rippleStyle.textContent = `
+                        @keyframes ripple {
+                            to { transform: scale(2); opacity: 0; }
+                        }
+                    `;
+                    document.head.appendChild(rippleStyle);
+                }
+                
+                button.style.position = 'relative';
+                button.style.overflow = 'hidden';
+                button.appendChild(ripple);
+                
+                setTimeout(() => ripple.remove(), 600);
+            }
+        });
+    </script>
+</body>
+</html>
